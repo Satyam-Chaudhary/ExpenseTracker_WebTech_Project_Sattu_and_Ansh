@@ -1,0 +1,33 @@
+*{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.navBar{
+    background-color: #0288d1;
+    display: flex;
+    gap: 50%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    color: #ffffff;
+    padding: 10px;
+}
+
+ul,li, a{
+    list-style: none;
+    display: inline-block;
+}
+
+a{
+    text-decoration: none;
+    margin: 5px;
+    padding: 10px;
+    color: #ffffff;
+}
+
+a:hover{
+    background-color: gray;
+    font-weight: bolder;
+}
