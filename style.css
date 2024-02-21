@@ -42,9 +42,10 @@
     display: block;
     max-width: 20%;
     border-radius: 5px;
-    min-height: 300px;
+    min-height: 310px;
     max-height: 30%;
     left: 5%;
+    display:block;
 }
 
 .addExpense input{
@@ -58,7 +59,7 @@
     background-color: #fafafa;
 }
 
-.addExpense #submit{
+.addExpense #submitExpense{
     padding: 10px;
     background-color: #0288d1;
     color: #ffffff;
@@ -74,10 +75,76 @@
     font-weight: bold;
     margin-top: 10px;
 }
-
+.addExpense #addExpenseHead{
+    display: flex;
+    justify-content:space-between;
+}
 .addExpense h2{
     margin-bottom: 8px;
 }
+
+.addExpense #toggleIncome{
+    background-color: rgb(6, 203, 6);
+    padding: 5px;
+    border-radius: 6px;
+    font-weight: 600;
+
+}
+
+.addIncome{
+    position: relative;
+    border: 1px solid #01283b;
+    margin: 20px;
+    padding: 10px;
+    display: block;
+    max-width: 20%;
+    border-radius: 5px;
+    min-height: 310px;
+    max-height: 30%;
+    left: 5%;
+    display:none;
+}
+.addIncome input{
+    width: 80%;
+    padding: 10px;
+    margin: 15px 0;
+    background-color: #fafafa;
+}
+
+
+.addIncome #submitIncome{
+    padding: 10px;
+    background-color: #0288d1;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    width: 20%;   
+    display: block;
+    border-radius: 5px;
+}
+
+.addIncome label{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.addIncome #addIncomeHead{
+    display: flex;
+    justify-content:space-between;
+}
+.addIncome h2{
+    margin-bottom: 8px;
+}
+
+.addIncome #toggleExpense{
+    background-color: rgb(234, 75, 75);
+    padding: 5px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+
+
 
 .sidebar{
     background-color: slategray;
@@ -138,4 +205,49 @@
     border-bottom: 1px solid #01283b;
     padding: 10px;
     text-align: center;
+}
+
+.totalView{
+    position: absolute;
+    top: 500px;
+    left: 5%;
+    margin: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 30px;
+}
+
+.totalView div{
+    border: 1px solid #01283b;
+    padding: 8px 15px 8px 15px;
+    border-radius: 5px;
+}
+.totalView h2{
+    margin-bottom: 10px;
+    border-bottom: 1px solid #01283b;
+}
+.totalView .totalExpense{
+    color: red;
+}
+
+.totalView .totalIncome{
+    color: green;
+}
+
+.totalView .spendable{
+    color: blue;
+}
+
+
+
+
+.footer{
+    position: absolute;
+    top: 95vh;
+    width: 100%;
+    text-align: center;
+}
+.footer #heart{
+    color: red;
 }

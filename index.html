@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Expense Tracker</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="components/logo" />
+  <link rel="icon" href="components/icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -27,13 +27,16 @@
   <div class="mainView">
   <div class="sidebar">
     <ul>
-    <li><a href="#"><h2>Analysis</h2></a></li>
+    <li><a href="analysis.html"><h2>Analysis</h2></a></li>
     <li><a href="#"><h2>Past Expenses</h2></a></li>
   </ul>
   </div>
   <div class="mainContent">
   <div class="addExpense">
+    <div id="addExpenseHead">
     <h2>Add Expense</h2>
+    <button id="toggleIncome">Add Income</button>
+  </div>
     <form action="#" method="#">
       <label for="expense">Expense for: </label>
       <input type="text" name="expense" placeholder="Expense" id="expense">
@@ -46,9 +49,26 @@
         <option value="entertainment">Entertainment</option>
         <option value="bills">Bills</option>
         <option value="others">Others</option>
-        <input type="submit" value="Add" id="submit" />
+      </select>
+        <input type="submit" value="Add" id="submitExpense" />
     </form>
   </div>
+
+  <div class="addIncome">
+    <div id="addIncomeHead">
+    <h2>Add Income</h2>
+    <button id="toggleExpense">Add Expense</button>
+  </div>
+    <form action="#" method="#">
+      <label for="income">Income from: </label>
+      <input type="text" name="income" placeholder="Income" id="income">
+      <label for="amount">Amount: </label>
+      <input type="number" name="amount" placeholder="Amount" id="amountIncome" />
+      <input type="submit" value="Add" id="submitIncome" />
+    </form>
+  </div>
+
+
   <div class="expenseRecord">
     <h2>Expense Record</h2>
     <table id="record">
@@ -60,10 +80,30 @@
       </tr>
     </table>
   </div>
+
+  <div class="totalView">
+    <div class="totalExpense">
+      <h2>Expense</h2>
+      <h3 id="total">0</h3>
+    </div>
+    <div class="totalIncome">
+      <h2>Income</h2>
+      <h3 id="incomeShow">0</h3>
+    </div>
+    <div class="spendable">
+      <h2>Current</h2>
+      <h3 id="spendable">0</h3>
+    </div>
 </div>
 </div>
-<script src="script.js" type="module" defer></script>
-<script src="date.js" type="module" defer></script>
+</div>
+<div class="footer">
+  <h4>Made with <span id="heart">&#x2665;</span> by Satyam & Ansh</h4>
+</div>
+<script src="scripts/toggle.js" type="module" defer></script>
+<script src="scripts/script.js" type="module" defer></script>
+<script src="scripts/date.js" type="module" defer></script>
+
 </body>
 
 </html>
