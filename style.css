@@ -1,5 +1,5 @@
 *{
-    font-family: Arial, sans-serif;
+    font-family: "Kode Mono", monospace, sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -13,21 +13,88 @@
     align-items: center;
     color: #ffffff;
     padding: 10px;
+    height: 50px;
 }
 
-ul,li, a{
+.navBar ul,li, a{
     list-style: none;
     display: inline-block;
 }
 
-a{
+.navBar a{
     text-decoration: none;
     margin: 5px;
     padding: 10px;
     color: #ffffff;
+    border-radius: 5px;
 }
 
-a:hover{
-    background-color: gray;
+.navBar a:hover{
+    background-color: green;
     font-weight: bolder;
+}
+
+.addExpense{
+    border: 1px solid #01283b;
+    margin: 20px;
+    padding: 10px;
+    display: block;
+    max-width: 20%;
+    border-radius: 5px;
+}
+
+.addExpense input{
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.addExpense #submit{
+    padding: 10px;
+    background-color: #0288d1;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    width: 20%;   
+    display: block;
+    border-radius: 5px;
+}
+
+.addExpense label{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.addExpense h2{
+    margin-bottom: 8px;
+}
+
+.sidebar{
+    background-color: slategray;
+    color: #ffffff;
+    padding: 10px;
+    width: 13%;
+    position: fixed;
+    height: 100%;
+    top: auto;
+    left: 0;
+}
+
+.sidebar h2{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.record{
+    position: fixed;
+    left: 14%;
+    width: 100%;
+    height: 100vh;
+}
+.sidebar a{
+    list-style: none;
+    text-decoration: none;
+    color: #ffffff;
 }
