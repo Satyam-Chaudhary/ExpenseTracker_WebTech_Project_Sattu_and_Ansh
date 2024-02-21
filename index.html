@@ -12,7 +12,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet">
-</head>
+  </head>
 
 <body>
   <!-- NavBar -->
@@ -31,12 +31,12 @@
     <li><a href="#"><h2>Past Expenses</h2></a></li>
   </ul>
   </div>
-  <div class="record">
+  <div class="mainContent">
   <div class="addExpense">
     <h2>Add Expense</h2>
     <form action="#" method="#">
       <label for="expense">Expense for: </label>
-      <input type="text" name="expense" placeholder="Expense" id="expense" />
+      <input type="text" name="expense" placeholder="Expense" id="expense">
       <label for="amount">Amount: </label>
       <input type="number" name="amount" placeholder="Amount" id="amount" />
       <label for="category">Category</label>
@@ -49,8 +49,21 @@
         <input type="submit" value="Add" id="submit" />
     </form>
   </div>
+  <div class="expenseRecord">
+    <h2>Expense Record</h2>
+    <table id="record">
+      <tr>
+        <th>Expense</th>
+        <th>Amount</th>
+        <th>Category</th>
+        <th>Date</th>
+      </tr>
+    </table>
+  </div>
 </div>
 </div>
+<script src="script.js" type="module" defer></script>
+<script src="date.js" type="module" defer></script>
 </body>
 
 </html>
