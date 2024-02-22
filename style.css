@@ -6,7 +6,7 @@
 .navBar{
     background-color: #0288d1;
     display: flex;
-    gap: 70%;
+    gap: 50%;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -34,10 +34,6 @@
     font-weight: bolder;
 }
 
-.navBar h1{
-    position: relative;
-
-}
 
 .addExpense{
     position: relative;
@@ -214,7 +210,7 @@
 
 .totalView{
     position: absolute;
-    top: 500px;
+    top: 400px;
     left: 5%;
     margin: 20px;
     text-align: center;
