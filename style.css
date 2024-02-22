@@ -6,7 +6,7 @@
 .navBar{
     background-color: #0288d1;
     display: flex;
-    gap: 50%;
+    gap: 70%;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -34,6 +34,11 @@
     font-weight: bolder;
 }
 
+.navBar h1{
+    position: relative;
+
+}
+
 .addExpense{
     position: relative;
     border: 1px solid #01283b;
@@ -45,7 +50,7 @@
     min-height: 310px;
     max-height: 30%;
     left: 5%;
-    display:block;
+    display:none;
 }
 
 .addExpense input{
@@ -102,7 +107,7 @@
     min-height: 310px;
     max-height: 30%;
     left: 5%;
-    display:none;
+    display:block;
 }
 .addIncome input{
     width: 80%;
