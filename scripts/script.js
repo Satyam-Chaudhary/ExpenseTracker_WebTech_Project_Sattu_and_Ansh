@@ -1,4 +1,5 @@
 import spread from "./date.js";
+
 const expenseInput = document.getElementById("expense");
 const amountInput = document.getElementById("amount");
 const categoryInput = document.getElementById("category");
@@ -29,48 +30,28 @@ const addExpense = (e) => {
     date: spread
   };
 
-
-
-
   const expenseRow = document.createElement("tr");
-
-  const expenseCell = document.createElement("td");
-  expenseCell.innerHTML = expense.expense;
-
-  const amountCell = document.createElement("td");
-  amountCell.innerHTML = `₹${expense.amount}`;
-  amountCell.style.color = "red";
-
-  const categoryCell = document.createElement("td");
-  categoryCell.innerHTML = expense.category;
-
-  const dateCell = document.createElement("td");
-  dateCell.innerHTML = expense.date;
-
-  expenseRow.appendChild(expenseCell);
-  expenseRow.appendChild(amountCell);
-  expenseRow.appendChild(categoryCell);
-  expenseRow.appendChild(dateCell);
+  expenseRow.innerHTML = `
+    <td>${expense.expense}</td>
+    <td style="color: red;">₹${expense.amount}</td>
+    <td>${expense.category}</td>
+    <td>${expense.date}</td>
+    <td><button class="delete-btn"> &times; </button></td>
+  `;
 
   const tableBody = document.getElementById("record");
-
   tableBody.appendChild(expenseRow);
-  
 
-  totalExpenseVar = totalExpenseVar + parseInt(expense.amount);
+  // Attach the event listener to the delete button
+  expenseRow.querySelector('.delete-btn').addEventListener('click', () => deleteRow(expenseRow, expense.amount, expense.category));
+
+  totalExpenseVar += parseInt(expense.amount);
   totalExpense.innerHTML = `₹${totalExpenseVar}`;
 
   expenseInput.value = "";
   amountInput.value = "";
   calculateSpendable();
 };
-
-
-
-const incomeInput = document.getElementById("income");
-const amountInputIncome = document.getElementById("amountIncome");
-const addIncomeBtn = document.getElementById("submitIncome");
-
 
 const addIncome = (e) => {
   e.preventDefault();
@@ -87,49 +68,51 @@ const addIncome = (e) => {
     amount: amountValueIncome,
     category: "Income",
     date: spread
-};
-  
-    const incomeRow = document.createElement("tr");
-  
-    const incomeCell = document.createElement("td");
-    incomeCell.innerHTML = income.income;
-  
-    const amountCell = document.createElement("td");
-    amountCell.innerHTML = `₹${income.amount}`;
-    amountCell.style.color = "green";
-  
-    const categoryCell = document.createElement("td");
-    categoryCell.innerHTML = income.category;
-  
-    const dateCell = document.createElement("td");
-    dateCell.innerHTML = income.date;
-  
-    incomeRow.appendChild(incomeCell);
-    incomeRow.appendChild(amountCell);
-    incomeRow.appendChild(categoryCell);
-    incomeRow.appendChild(dateCell);
-  
-    const tableBody = document.getElementById("record");
-  
-    tableBody.appendChild(incomeRow);
-
-    totalIncomeVar = totalIncomeVar + parseInt(income.amount);
-    totalIncome.innerHTML = `₹${totalIncomeVar}`;
-  
-    incomeInput.value = "";
-    amountInputIncome.value = "";
-    calculateSpendable();
-  }
-
-  const calculateSpendable = () => {
-    totalSpendableVar = totalIncomeVar - totalExpenseVar;
-    totalSpendable.innerHTML = `₹${totalSpendableVar}`;
-    console.log(totalSpendableVar);
   };
 
-  
+  const incomeRow = document.createElement("tr");
+  incomeRow.innerHTML = `
+    <td>${income.income}</td>
+    <td style="color: green;">₹${income.amount}</td>
+    <td>${income.category}</td>
+    <td>${income.date}</td>
+    <td><button class="delete-btn">&times;</button></td>
+  `;
+
+  const tableBody = document.getElementById("record");
+  tableBody.appendChild(incomeRow);
+
+  // Attach the event listener to the delete button
+  incomeRow.querySelector('.delete-btn').addEventListener('click', () => deleteRow(incomeRow, income.amount, income.category));
+
+  totalIncomeVar += parseInt(income.amount);
+  totalIncome.innerHTML = `₹${totalIncomeVar}`;
+
+  incomeInput.value = "";
+  amountInputIncome.value = "";
+  calculateSpendable();
+};
+
+const calculateSpendable = () => {
+  totalSpendableVar = totalIncomeVar - totalExpenseVar;
+  totalSpendable.innerHTML = `₹${totalSpendableVar}`;
+};
+
+function deleteRow(row, amount, category) {
+  if (category === "Income") {
+    totalIncomeVar -= parseInt(amount);
+    totalIncome.innerHTML = `₹${totalIncomeVar}`;
+  } else {
+    totalExpenseVar -= parseInt(amount);
+    totalExpense.innerHTML = `₹${totalExpenseVar}`;
+  }
+  row.remove();
+  calculateSpendable();
+}
+
+const incomeInput = document.getElementById("income");
+const amountInputIncome = document.getElementById("amountIncome");
+const addIncomeBtn = document.getElementById("submitIncome");
 
 addExpenseBtn.addEventListener("click", addExpense);
 addIncomeBtn.addEventListener("click", addIncome);
-
-

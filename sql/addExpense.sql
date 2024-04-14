@@ -1,0 +1,7 @@
+CREATE TABLE addExpense(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    expense VARCHAR(255) NOT NULL,
+    amount DECIMAL(10, 2) NOT NULL,
+    category TEXT(255) NOT NULL,
+    date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

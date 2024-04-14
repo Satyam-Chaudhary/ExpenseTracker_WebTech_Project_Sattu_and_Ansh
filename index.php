@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+// Include your addExpense.php script
+include 'phpScripts/transactions.php';
+
+$message = '';
+if (isset($_SESSION['message'])) {
+    $message = $_SESSION['message'];
+    unset($_SESSION['message']); // Clear the message after displaying it once
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,13 +18,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Expense Tracker</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style2.css" />
   <link rel="icon" href="components/icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
   </head>
 
 <body>
@@ -20,7 +35,7 @@
     <h1>Expense Tracker</h1>
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="signup.html">Sign Up</a></li>
+      <li><a href="login.php">Login</a></li>
       <li><a href="about.html">About</a></li>
     </ul>
   </div>
@@ -28,6 +43,7 @@
   <div class="sidebar">
     <ul>
     <li><a href="analysis.html"><h2>Analysis</h2></a></li>
+    <br>
     <li><a href="#"><h2>Past Expenses</h2></a></li>
   </ul>
   </div>
@@ -37,7 +53,7 @@
     <h2>Add Expense</h2>
     <button id="toggleIncome">Add Income</button>
   </div>
-    <form action="#" method="#">
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" >
       <label for="expense">Expense for: </label>
       <input type="text" name="expense" placeholder="Expense" id="expense">
       <label for="amount">Amount: </label>
@@ -50,7 +66,9 @@
         <option value="bills">Bills</option>
         <option value="others">Others</option>
       </select>
-        <input type="submit" value="Add" id="submitExpense" />
+      <div class="addTransaction"> 
+      <button type="submit" value="Add" id="submitExpense">Add</button>
+      </div> 
     </form>
   </div>
 
@@ -59,12 +77,14 @@
     <h2>Add Income</h2>
     <button id="toggleExpense">Add Expense</button>
   </div>
-    <form action="#" method="#">
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
       <label for="income">Income from: </label>
       <input type="text" name="income" placeholder="Income" id="income">
       <label for="amount">Amount: </label>
-      <input type="number" name="amount" placeholder="Amount" id="amountIncome" />
-      <input type="submit" value="Add" id="submitIncome" />
+      <input type="number" name="amountIncome" placeholder="Amount" id="amountIncome" />
+      <div class="addTransaction">
+      <button type="submit" value="Add" id="submitIncome">Add</button>
+      </div>
     </form>
   </div>
 
@@ -77,6 +97,7 @@
         <th>Amount</th>
         <th>Category</th>
         <th>Date</th>
+        <th>Del</th>
       </tr>
     </table>
   </div>
@@ -100,9 +121,12 @@
 <div class="footer">
   <h4>Made with <span id="heart">&#x2665;</span> by Satyam & Ansh</h4>
 </div>
+
+
+
 <script src="scripts/toggle.js" type="module" defer></script>
-<script src="scripts/script.js" type="module" defer></script>
-<script src="scripts/date.js" type="module" defer></script>
+<!-- <script src="scripts/script.js" type="module" defer></script> -->
+<!-- <script src="scripts/date.js" type="module" defer></script> -->
 
 </body>
 

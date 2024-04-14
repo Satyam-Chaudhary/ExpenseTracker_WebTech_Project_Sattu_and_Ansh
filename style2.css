@@ -1,10 +1,10 @@
 *{
-    font-family: "Kode Mono", monospace, sans-serif;
+    font-family: "calibri", monospace, sans-serif;
     margin: 0;
     padding: 0;
 }
 .navBar{
-    background-color: #0288d1;
+    background-color:cadetblue;
     display: flex;
     gap: 50%;
     flex-direction: row;
@@ -12,8 +12,9 @@
     justify-content: space-between;
     align-items: center;
     color: #ffffff;
-    padding: 10px; 
+    padding: 10px;
     height: 50px;
+    
 }
 
 .navBar ul,li, a{
@@ -40,13 +41,12 @@
     border: 1px solid #01283b;
     margin: 20px;
     padding: 10px;
-    display: block;
-    max-width: 20%;
-    border-radius: 5px;
+    max-width: 26%;
+    border-radius: 1px;
     min-height: 310px;
     max-height: 30%;
     left: 5%;
-    display:none;
+    display: block;
 }
 
 .addExpense input{
@@ -56,19 +56,26 @@
     background-color: #fafafa;
 }
 
+
 .addExpense select{
     background-color: #fafafa;
 }
 
-.addExpense #submitExpense{
+.addExpense #submitExpense, .addIncome #submitIncome{
     padding: 10px;
-    background-color: #0288d1;
-    color: #ffffff;
-    border: none;
+    margin-top: 5px;
+    background-color: turquoise;
+    color: black;
+    border: 1px solid black;
     cursor: pointer;
     width: 20%;   
     display: block;
-    border-radius: 5px;
+    border-radius: 3px;
+}
+
+
+.addExpense #submitExpense:hover, .addIncome #submitIncome:hover{
+    background-color: paleturquoise;
 }
 
 .addExpense label{
@@ -85,25 +92,27 @@
 }
 
 .addExpense #toggleIncome{
-    background-color: rgb(6, 203, 6);
+    background-color: darkcyan;
     padding: 5px;
-    border-radius: 6px;
+    border-radius: 1px;
     font-weight: 600;
 
 }
-
+.addExpense #toggleIncome:hover{
+    background-color: lightseagreen;
+}
 .addIncome{
     position: relative;
+    display: none;
     border: 1px solid #01283b;
     margin: 20px;
     padding: 10px;
-    display: block;
-    max-width: 20%;
-    border-radius: 5px;
+    max-width: 26%;
+    border-radius: 1px;
     min-height: 310px;
     max-height: 30%;
     left: 5%;
-    display:block;
+    
 }
 .addIncome input{
     width: 80%;
@@ -115,13 +124,16 @@
 
 .addIncome #submitIncome{
     padding: 10px;
-    background-color: #0288d1;
-    color: #ffffff;
-    border: none;
+    background-color:turquoise;
+    color: black;
+    border: 1px solid black;
     cursor: pointer;
     width: 20%;   
     display: block;
-    border-radius: 5px;
+    border-radius: 1px;
+}
+.addIncome #submitIncome:hover{
+    background-color:paleturquoise;
 }
 
 .addIncome label{
@@ -138,20 +150,23 @@
 }
 
 .addIncome #toggleExpense{
-    background-color: rgb(234, 75, 75);
+    background-color: darkcyan;
     padding: 5px;
-    border-radius: 6px;
+    border-radius: 1px;
     font-weight: 600;
+}
+.addIncome #toggleExpense:hover{
+    background-color:lightseagreen;
+
 }
 
 
 
-
 .sidebar{
-    background-color: slategray;
+    background-color:teal;
     color: #ffffff;
     padding: 10px;
-    width: 13%;
+    width: 15%;
     position: fixed;
     height: 100%;
     top: auto;
@@ -173,11 +188,11 @@
 
 .mainContent{
     position: fixed;
-    left: 14%;
-    width: 100%;
+    left: 15%;
+    width: 85%;
     height: 100vh;
     display: flex;
-    gap: 15%;
+    gap: 20%;
     background-color: #eeecec;
 }
 
@@ -186,8 +201,8 @@
     margin: 20px;
     padding: 10px;
     display: block;
-    min-width: 30%;
-    border-radius: 5px;
+    min-width: 40%;
+    border-radius: 1px;
     height: fit-content;
     padding-bottom: 50px;
 }
@@ -222,22 +237,22 @@
 .totalView div{
     border: 1px solid #01283b;
     padding: 8px 15px 8px 15px;
-    border-radius: 5px;
+    border-radius: 1px;
 }
 .totalView h2{
     margin-bottom: 10px;
     border-bottom: 1px solid #01283b;
 }
 .totalView .totalExpense{
-    color: red;
+    color: deeppink;
 }
 
 .totalView .totalIncome{
-    color: green;
+    color:lightcoral;
 }
 
 .totalView .spendable{
-    color: blue;
+    color:palevioletred;
 }
 
 
@@ -249,14 +264,9 @@
     width: 100%;
     text-align: center;
 }
-.footer #heart{
-    color: red;
-}
 
-#loginModal{
-    z-index: 90;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.delete-btn{
+    color: red;
+    width: 25px;
+    background-color: turquoise;
 }

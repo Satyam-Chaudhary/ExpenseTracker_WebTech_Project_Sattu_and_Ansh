@@ -1,0 +1,154 @@
+*{
+    font-family: "Kode Mono", "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body, html {
+    height: 100%;
+}
+
+.navBar{
+    background-color: cadetblue;
+    padding: 10px 50px; /* Adjusted padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+}
+
+.navBar ul {
+    display: flex;
+    list-style: none;
+}
+
+.navBar li {
+    margin: 0 10px; /* Adjust spacing between nav items */
+}
+
+.navBar a {
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.navBar a:hover {
+    background-color: green;
+    font-weight: bold;
+}
+
+.mainView {
+    display: flex;
+    width: 100%;
+    height: calc(100% - 70px); /* Adjust based on navbar height */
+    overflow: hidden;
+}
+
+.sidebar {
+    background-color: teal;
+    color: #ffffff;
+    padding: 20px;
+    width: 200px; /* Fixed width */
+    height: 100%;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #ffffff;
+    display: block;
+    margin: 10px 0;
+}
+
+.mainContent {
+    flex-grow: 1;
+    background-color: #eeecec;
+    padding: 20px;
+    overflow-y: auto; /* Allows scrolling */
+}
+
+.addExpense, .addIncome {
+    border: 1px solid #01283b;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 1px;
+    background-color: #ffffff;
+}
+
+.addExpense input, .addIncome input,
+.addExpense select, .addIncome select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #fafafa;
+}
+
+.addExpense #submitExpense, .addIncome #submitIncome {
+    padding: 10px;
+    background-color: turquoise;
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
+    display: block;
+    width: 100%;   
+}
+
+.addExpense #submitExpense:hover, .addIncome #submitIncome:hover {
+    background-color: paleturquoise;
+}
+.addExpense{
+    display: none;
+}
+
+.addExpense label, .addIncome label {
+    font-weight: bold;
+}
+
+#addExpenseHead, #addIncomeHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggleIncome, .toggleExpense {
+    padding: 5px;
+    background-color: darkcyan;
+    border-radius: 1px;
+    font-weight: 600;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+.toggleIncome:hover, .toggleExpense:hover {
+    background-color: lightseagreen;
+}
+
+.expenseRecord, .totalView {
+    margin-top: 20px;
+}
+
+.expenseRecord table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.expenseRecord th, .expenseRecord td {
+    border: 1px solid #01283b;
+    padding: 10px;
+    text-align: left;
+}
+
+.footer {
+    background-color: #fafafa;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
