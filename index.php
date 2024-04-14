@@ -1,13 +1,12 @@
 <?php
 session_start();
 
-// Include your addExpense.php script
 include 'phpScripts/transactions.php';
 
 $message = '';
 if (isset($_SESSION['message'])) {
     $message = $_SESSION['message'];
-    unset($_SESSION['message']); // Clear the message after displaying it once
+    unset($_SESSION['message']); 
 }
 ?>
 
