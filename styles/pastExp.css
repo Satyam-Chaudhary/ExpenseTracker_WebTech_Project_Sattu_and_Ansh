@@ -1,0 +1,110 @@
+.navBar {
+    background-color: cadetblue;
+    display: flex;
+    gap: 50%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    padding: 10px;
+    height: 50px;
+}
+
+.navBar ul,
+li,
+a {
+    list-style: none;
+    display: inline-block;
+}
+
+* {
+    font-family: "calibri", monospace, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navBar a:hover {
+    background-color: green;
+    font-weight: bolder;
+}
+
+.navBar a {
+    text-decoration: none;
+    margin: 5px;
+    padding: 10px;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+.select {
+    position: relative;
+    border: 1px solid #01283b;
+    margin: 20px;
+    padding: 10px;
+    max-width: 100%;
+    border-radius: 10px;
+    min-height: 50px;
+    max-height: 30%;
+    display: block;
+    display:flex;
+    background-color:#8d99ae;
+    align-items: center;
+}
+
+.s {
+    display: inline;
+    
+}
+
+.dtRange {
+    margin-right: 20px;
+    margin-left: 250px;
+}
+
+
+.in{
+    background-color: #e7ecef;
+    border-style: none;
+
+    
+}
+button{
+    margin-left:200px; width:20px;
+
+
+}
+
+.expenseRecord{
+    border: 1px dotted #01283b;
+    margin: 20px;
+    padding: 10px;
+    display: block;
+    min-width: 40%;
+    border-radius: 10px;
+    height: fit-content;
+    padding-bottom: 50px;
+}
+
+.expenseRecord h2{
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.expenseRecord table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.expenseRecord th,
+.expenseRecord td{
+    border-bottom: 1px solid #01283b;
+    padding: 10px;
+    text-align: center;
+    background-color: #e7ecef; /* Add this background color */
+}
+h3{
+    text-align: center;
+    width: 100%;
+    color: red;
+}

@@ -17,7 +17,7 @@ if (isset($_SESSION['message'])) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Expense Tracker</title>
-  <link rel="stylesheet" href="style2.css" />
+  <link rel="stylesheet" href="styles/style2.css" />
   <link rel="icon" href="components/icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,7 +33,7 @@ if (isset($_SESSION['message'])) {
   <div class="navBar">
     <h1>Expense Tracker</h1>
     <ul>
-      <li><a href="index.html">Home</a></li>
+      <li><a href="index.php">Home</a></li>
       <li><a href="login.php">Login</a></li>
       <li><a href="about.html">About</a></li>
     </ul>
@@ -43,7 +43,7 @@ if (isset($_SESSION['message'])) {
     <ul>
     <li><a href="analysis.html"><h2>Analysis</h2></a></li>
     <br>
-    <li><a href="#"><h2>Past Expenses</h2></a></li>
+    <li><a href="pastExpense.php"><h2>Past Expenses</h2></a></li>
   </ul>
   </div>
   <div class="mainContent">
