@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 session_start();
 include 'phpScripts/config.php'; // Database connection using PDO
 
@@ -19,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($result) {
             $_SESSION['username'] = $username;
             header("Location: login.php");
-            exit; // It is good practice to call exit after header redirection
+            exit;
         } else {
             $error = "Error in registration.";
         }

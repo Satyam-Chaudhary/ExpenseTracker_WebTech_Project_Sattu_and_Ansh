@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Database configuration
 $servername = "localhost";
 $username = "root";
@@ -14,26 +15,26 @@ if ($conn->connect_error) {
 }
 
 $expenses = []; // Initialize $expenses array
-
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $type = $_POST['IorE'];
     $from_date = $_POST['fromdt'];
     $to_date = $_POST['todt'];
+    $userId = $_SESSION['user_id'];  // Assuming you store user id in session
 
-    // SQL query to fetch data from the database based on type and date range
+    // SQL query to fetch data from the database based on type, date range, and user id
     if ($type === 'all') {
-        $sql = "SELECT * FROM transactions WHERE DATE(date) BETWEEN ? AND ?";
+        $sql = "SELECT * FROM transactions WHERE user_id = ? AND DATE(date) BETWEEN ? AND ?";
     } else {
-        $sql = "SELECT * FROM transactions WHERE type = ? AND DATE(date) BETWEEN ? AND ?";
+        $sql = "SELECT * FROM transactions WHERE user_id = ? AND type = ? AND DATE(date) BETWEEN ? AND ?";
     }
 
     $stmt = $conn->prepare($sql);
 
     if ($type === 'all') {
-        $stmt->bind_param("ss", $from_date, $to_date);
+        $stmt->bind_param("iss", $userId, $from_date, $to_date);
     } else {
-        $stmt->bind_param("sss", $type, $from_date, $to_date);
+        $stmt->bind_param("isss", $userId, $type, $from_date, $to_date);
     }
 
     $stmt->execute();
@@ -61,14 +62,23 @@ $conn->close();
     <link rel="icon" href="components/icon.png" />
 </head>
 <body>
-    <div class="navBar">
-        <h1>Expense Tracker</h1>
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="login.php">Login</a></li>
-            <li><a href="about.html">About</a></li>
-        </ul>
-    </div>
+    
+<div class="navBar">
+      <h1>Expense Tracker</h1>
+      <ul>
+        <li><a href="index.php">Home</a></li>
+        <?php if (isset($_SESSION["username"])): ?>
+          <li><a href="profile.php"><?php echo htmlspecialchars(
+              $_SESSION["username"]
+          ); ?></a></li>
+          <li><a href="logout.php">Logout</a></li>
+        <?php else: ?>
+          <li><a href="login.php">Login</a></li>
+        <?php endif; ?>
+        <li><a href="about.html">About</a></li>
+      </ul>
+  </div>
+
     <div class="mainSection">
         <div class="select">
             <form class="select_IorE" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">

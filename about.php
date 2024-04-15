@@ -1,3 +1,15 @@
+<?php
+  error_reporting(E_ALL);
+  ini_set("display_errors", 1);
+  session_start();
+    
+  $message = "";
+  if (isset($_SESSION["message"])) {
+      $message = $_SESSION["message"];
+      unset($_SESSION["message"]);
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,88 +17,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Expense Tracker</title>
     <link rel="icon" href="components/icon.png" />
-    <style>
-      .navBar {
-        background-color: cadetblue;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        color: #ffffff;
-        padding: 10px;
-        height: 50px;
-      }
-      .navBar ul, li, a {
-        list-style: none;
-        display: inline-block;
-      }
-      * {
-        font-family: "calibri", monospace, sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-      .navBar a:hover {
-        background-color: green;
-        font-weight: bolder;
-      }
-      .navBar a {
-        text-decoration: none;
-        margin: 5px;
-        padding: 10px;
-        color: #ffffff;
-        border-radius: 5px;
-      }
-      .mainContent {
-        display: flex;
-        justify-content: space-between;
-        gap: 40px;
-        max-width: 1200px;
-        margin: 20px auto;
-        padding: 0 20px;
-      }
-      .head {
-        flex: 1;
-        background-color: #88d4ab;
-        border-radius: 10px;
-        padding: 20px;
-        margin-right: 20px;
-      }
-      .head h1 {
-        margin-bottom: 20px;
-      }
-      .para {
-        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-        line-height: 1.6;
-      }
-      .img {
-        flex: 1;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-      }
-      .img img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-      .img figcaption {
-        text-align: right;
-        margin-top: 10px;
-        font-style: italic;
-        color: #555;
-      }
-    </style>
+    <link rel="stylesheet" href="styles/about.css" />
 </head>
 <body>
-  <div class="navBar">
-    <h1>Expense Tracker</h1>
-    <ul>
-      <li><a href="index.php">Home</a></li>
-      <li><a href="login.php">Login</a></li>
-      <li><a href="about.html">About</a></li>
-    </ul>
+  
+<div class="navBar">
+      <h1>Expense Tracker</h1>
+      <ul>
+        <li><a href="index.php">Home</a></li>
+        <?php if (isset($_SESSION["username"])): ?>
+          <li><a href="profile.php"><?php echo htmlspecialchars(
+              $_SESSION["username"]
+          ); ?></a></li>
+          <li><a href="logout.php">Logout</a></li>
+        <?php else: ?>
+          <li><a href="login.php">Login</a></li>
+        <?php endif; ?>
+        <li><a href="about.html">About</a></li>
+      </ul>
   </div>
+
   <div class="mainContent">
     <div class="head">
       <h1>About Our Web Application</h1>

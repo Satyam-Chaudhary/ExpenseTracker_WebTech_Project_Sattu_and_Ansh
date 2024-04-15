@@ -44,7 +44,7 @@ if (isset($_SESSION["message"])) {
         <?php else: ?>
           <li><a href="login.php">Login</a></li>
         <?php endif; ?>
-        <li><a href="about.html">About</a></li>
+        <li><a href="about.php">About</a></li>
       </ul>
   </div>
 
