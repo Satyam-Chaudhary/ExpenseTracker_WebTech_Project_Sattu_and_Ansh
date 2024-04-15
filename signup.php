@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="wrapper">
         <form id="registerForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <h1>Register</h1>
-            <?php if (!empty($error)) { echo "<p style='color:red;'>$error</p>"; } ?>
+            <?php if (!empty($error)) { echo "<p style='color:red; text-align:center; margin-top:10px'>$error</p>"; } ?>
             <div class="input-box">
                 <input type="text" name="username" placeholder="Username" required>
                 <i class='bx bxs-user'></i>

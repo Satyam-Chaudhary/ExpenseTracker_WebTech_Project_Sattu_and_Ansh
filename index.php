@@ -1,12 +1,14 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 session_start();
 
-include 'phpScripts/transactions.php';
+include "phpScripts/transactions.php";
 
-$message = '';
-if (isset($_SESSION['message'])) {
-    $message = $_SESSION['message'];
-    unset($_SESSION['message']); 
+$message = "";
+if (isset($_SESSION["message"])) {
+    $message = $_SESSION["message"];
+    unset($_SESSION["message"]);
 }
 ?>
 
@@ -31,13 +33,21 @@ if (isset($_SESSION['message'])) {
 <body>
   <!-- NavBar -->
   <div class="navBar">
-    <h1>Expense Tracker</h1>
-    <ul>
-      <li><a href="index.php">Home</a></li>
-      <li><a href="login.php">Login</a></li>
-      <li><a href="about.html">About</a></li>
-    </ul>
+      <h1>Expense Tracker</h1>
+      <ul>
+        <li><a href="index.php">Home</a></li>
+        <?php if (isset($_SESSION["username"])): ?>
+          <li><a href="profile.php"><?php echo htmlspecialchars(
+              $_SESSION["username"]
+          ); ?></a></li>
+          <li><a href="logout.php">Logout</a></li>
+        <?php else: ?>
+          <li><a href="login.php">Login</a></li>
+        <?php endif; ?>
+        <li><a href="about.html">About</a></li>
+      </ul>
   </div>
+
   <div class="mainView">
   <div class="sidebar">
     <ul>
@@ -52,7 +62,7 @@ if (isset($_SESSION['message'])) {
     <h2>Add Expense</h2>
     <button id="toggleIncome">Add Income</button>
   </div>
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" >
+    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" >
       <label for="expense">Expense for: </label>
       <input type="text" name="expense" placeholder="Expense" id="expense">
       <label for="amount">Amount: </label>
@@ -65,9 +75,9 @@ if (isset($_SESSION['message'])) {
         <option value="bills">Bills</option>
         <option value="others">Others</option>
       </select>
-      <div class="addTransaction"> 
+      <div class="addTransaction">
       <button type="submit" value="Add" id="submitExpense">Add</button>
-      </div> 
+      </div>
     </form>
   </div>
 
@@ -76,7 +86,7 @@ if (isset($_SESSION['message'])) {
     <h2>Add Income</h2>
     <button id="toggleExpense">Add Expense</button>
   </div>
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
       <label for="income">Income from: </label>
       <input type="text" name="income" placeholder="Income" id="income">
       <label for="amount">Amount: </label>
@@ -90,6 +100,7 @@ if (isset($_SESSION['message'])) {
 
   <div class="expenseRecord">
     <h2>Expense Record</h2>
+    <h4 style="text-align: center;"><?php echo $message?></h4>
     <table id="record">
       <tr>
         <th>Expense</th>

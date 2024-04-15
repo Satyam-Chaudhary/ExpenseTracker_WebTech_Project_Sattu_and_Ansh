@@ -37,43 +37,92 @@ a {
     border-radius: 5px;
 }
 
-.select {
-    position: relative;
-    border: 1px solid #01283b;
-    margin: 20px;
-    padding: 10px;
-    max-width: 100%;
-    border-radius: 10px;
-    min-height: 50px;
-    max-height: 30%;
-    display: block;
-    display:flex;
-    background-color:#8d99ae;
+/* .select {
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid #01283b;
+    background-color: #a2a5ab;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #01283b;
 }
 
-.s {
-    display: inline;
-    
+.s, .dtRange, .in, button {
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+.in, button {
+    padding: 10px 20px;
+    background-color: #e7ecef;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button {
+    background-color: #4450dd;
+    color: black;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: blue;
+    color: white;
 }
 
 .dtRange {
-    margin-right: 20px;
-    margin-left: 250px;
+    flex-grow: 1;
+    text-align: center;
+    margin-right: 10px;
+} */
+
+.select {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid #01283b;
+    background-color: #8d99ae;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #01283b;
 }
 
+.s, .dtRange, .in {
+    margin-right: 10px;
+    font-weight: 600;
+}
 
-.in{
+.in {
+    padding: 10px 20px;
     background-color: #e7ecef;
-    border-style: none;
-
-    
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
-button{
-    margin-left:200px; width:20px;
 
-
+button {
+    background-color: #4450dd;
+    color: black;
+    cursor: pointer;
 }
+
+button:hover {
+    background-color: blue;
+    color: white;
+}
+
+.dtRange {
+    flex-grow: 1;
+    text-align: center;
+    margin-right: 10px;
+}
+
 
 .expenseRecord{
     border: 1px dotted #01283b;

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <link rel="icon" href="components/icon.png" />
+    <style>
+      .navBar {
+        background-color: cadetblue;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        color: #ffffff;
+        padding: 10px;
+        height: 50px;
+      }
+      .navBar ul, li, a {
+        list-style: none;
+        display: inline-block;
+      }
+      * {
+        font-family: "calibri", monospace, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .navBar a:hover {
+        background-color: green;
+        font-weight: bolder;
+      }
+      .navBar a {
+        text-decoration: none;
+        margin: 5px;
+        padding: 10px;
+        color: #ffffff;
+        border-radius: 5px;
+      }
+      .mainContent {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 0 20px;
+      }
+      .head {
+        flex: 1;
+        background-color: #88d4ab;
+        border-radius: 10px;
+        padding: 20px;
+        margin-right: 20px;
+      }
+      .head h1 {
+        margin-bottom: 20px;
+      }
+      .para {
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        line-height: 1.6;
+      }
+      .img {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+      .img img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .img figcaption {
+        text-align: right;
+        margin-top: 10px;
+        font-style: italic;
+        color: #555;
+      }
+    </style>
+</head>
+<body>
+  <div class="navBar">
+    <h1>Expense Tracker</h1>
+    <ul>
+      <li><a href="index.php">Home</a></li>
+      <li><a href="login.php">Login</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+  <div class="mainContent">
+    <div class="head">
+      <h1>About Our Web Application</h1>
+      <div class="para">
+        <p>
+          Our upcoming web application, "Expense Tracker", aims to revolutionize
+          the way users handle their daily expenses, offering a streamlined
+          and efficient solution for managing finances. Gone are the days of
+          laboriously maintaining Excel sheets or CSV files to track
+          expenditures. With our platform, users can effortlessly input their
+          daily expenses, eliminating the need for manual calculations and
+          ensuring accurate tracking of their financial outflows.
+        </p>
+        <p>
+          Unlike the current methods which rely on cumbersome manual logging,
+          our application provides a comprehensive solution that simplifies
+          expense management. No longer will users need to rely on memory or
+          written records to keep track of their spending. Instead, they can
+          conveniently input their expenses into the system, which
+          automatically calculates totals and organizes data for easy
+          reference.
+        </p>
+        <p>
+          Furthermore, our platform offers enhanced functionality compared to
+          existing systems. By storing data securely for each unique user, it
+          ensures privacy and enables personalized financial insights. With
+          "Money Manager," users can take control of their finances with
+          confidence, knowing that their daily expenses are accurately
+          recorded and easily accessible whenever needed.
+        </p>
+      </div>
+    </div>
+    <div class="img">
+      <figure>
+        <img
+          src="components/flowState.png"
+          alt="Flow of state in application"
+        />
+        <figcaption>Flow of state in application</figcaption>
+      </figure>
+    </div>
+  </div>
+</body>
+</html>
