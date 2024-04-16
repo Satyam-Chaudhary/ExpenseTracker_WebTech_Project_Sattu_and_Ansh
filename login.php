@@ -10,19 +10,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
 
     $query = $pdo->prepare(
-        "SELECT user_id, username, password FROM users WHERE username = ?"
+        "SELECT user_id, username, password FROM users WHERE BINARY username = ?" //since php is a case in-sensitive language therefore we need to use BINARY keyword to make it case sensitive
     );
     $query->execute([$username]);
     $user = $query->fetch();
 
     if ($user && password_verify($password, $user["password"])) {
-        $_SESSION["user_id"] = $user["user_id"]; // Save user ID in session
-        $_SESSION["username"] = $user["username"]; // Save username in session
+    if ($username === $user['username']) {
+        $_SESSION["user_id"] = $user["user_id"];
+        $_SESSION["username"] = $user["username"];
         header("Location: index.php");
         exit();
     } else {
         $error = "Invalid username or password.";
     }
+} else {
+    $error = "Invalid username or password.";
+}
 }
 ?>
 <!DOCTYPE html>
