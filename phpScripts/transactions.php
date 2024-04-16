@@ -1,7 +1,5 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+session_start();
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
@@ -12,65 +10,51 @@ $password = "";
 $database = "expenseTracker";
 
 // Create database connection
-$conn = mysqli_connect($server, $username, $password, $database);
+$conn = new mysqli($server, $username, $password, $database);
 
 // Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_SESSION["user_id"])) {
-        // Ensure the user is logged in
-        $user_id = $_SESSION["user_id"];
-
-        if (isset($_POST["expense"], $_POST["amount"], $_POST["category"])) {
-            // Handle expense
-            $type = "expense";
-            $description = $_POST["expense"];
-            $amount = $_POST["amount"];
-            $category = $_POST["category"];
-        } elseif (isset($_POST["income"], $_POST["amountIncome"])) {
-            // Handle income
-            $type = "income";
-            $description = $_POST["income"];
-            $amount = $_POST["amountIncome"];
-            $category = "Income"; // Or fetch from form if you decide to categorize income sources too
-        } else {
-            // Form not correctly filled
-            $_SESSION["message"] = "Please fill in the form correctly.";
-            // header("Location: your_form_page.php"); // Redirect to form page
-            exit();
-        }
-
-        $sql = "INSERT INTO transactions (type, description, amount, category, user_id) VALUES (?, ?, ?, ?, ?)";
-
-        $stmt = $conn->prepare($sql);
-        if ($stmt) {
-            $stmt->bind_param(
-                "ssdsi",
-                $type,
-                $description,
-                $amount,
-                $category,
-                $user_id
-            );
-            if ($stmt->execute()) {
-                $_SESSION["message"] = "Record added successfully.";
-            } else {
-                $_SESSION["message"] = "Error: " . $stmt->error;
-            }
-            $stmt->close();
-        } else {
-            $_SESSION["message"] = "Error: " . $conn->error;
-        }
-
-        $conn->close();
-        header("Location: index.php"); // Redirect to form page
-        exit();
-    } else {
-        $_SESSION["message"] = "Please log in to add a transaction.";
-        header("Location: login.php"); // Redirect to login page if not logged in
+    if (!isset($_SESSION["user_id"])) {
+        echo json_encode(["status" => false, "message" => "Please log in to add a transaction."]);
         exit();
     }
+    
+    $user_id = $_SESSION["user_id"];
+    $type = $description = $category = "";
+    $amount = 0;
+
+    if (!empty($_POST["expense"]) && !empty($_POST["amount"]) && isset($_POST["category"])) {
+        $type = "expense";
+        $description = $_POST["expense"];
+        $amount = $_POST["amount"];
+        $category = $_POST["category"];
+    } elseif (!empty($_POST["income"]) && !empty($_POST["amountIncome"])) {
+        $type = "income";
+        $description = $_POST["income"];
+        $amount = $_POST["amountIncome"];
+        $category = "Income";
+    } else {
+        echo json_encode(["status" => false, "message" => "Please fill in all fields."]);
+        exit();
+    }
+
+    $sql = "INSERT INTO transactions (type, description, amount, category, user_id) VALUES (?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    if ($stmt) {
+        $stmt->bind_param("ssdsi", $type, $description, $amount, $category, $user_id);
+        if ($stmt->execute()) {
+            echo json_encode(["status" => true, "message" => "Record added successfully."]);
+        } else {
+            echo json_encode(["status" => false, "message" => "Error: " . $stmt->error]);
+        }
+        $stmt->close();
+    } else {
+        echo json_encode(["status" => false, "message" => "Error preparing statement: " . $conn->error]);
+    }
+    $conn->close();
 }
+?>

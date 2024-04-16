@@ -3,7 +3,6 @@ error_reporting(E_ALL);
 ini_set("display_errors", 1);
 session_start();
 
-include "phpScripts/transactions.php";
 
 $message = "";
 if (isset($_SESSION["message"])) {
@@ -62,7 +61,7 @@ if (isset($_SESSION["message"])) {
     <h2>Add Expense</h2>
     <button id="toggleIncome">Add Income</button>
   </div>
-    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" >
+    <form action="" method="post" >
       <label for="expense">Expense for: </label>
       <input type="text" name="expense" placeholder="Expense" id="expense">
       <label for="amount">Amount: </label>
@@ -86,7 +85,7 @@ if (isset($_SESSION["message"])) {
     <h2>Add Income</h2>
     <button id="toggleExpense">Add Expense</button>
   </div>
-    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+    <form action="" method="post">
       <label for="income">Income from: </label>
       <input type="text" name="income" placeholder="Income" id="income">
       <label for="amount">Amount: </label>
@@ -100,7 +99,7 @@ if (isset($_SESSION["message"])) {
 
   <div class="expenseRecord">
     <h2>Expense Record</h2>
-    <h4 style="text-align: center;"><?php echo $message?></h4>
+    <h4 style="text-align: center;" id="recordAdded"></h4>
     <table id="record">
       <tr>
         <th>Expense</th>
@@ -135,8 +134,10 @@ if (isset($_SESSION["message"])) {
 
 
 <script src="scripts/toggle.js" type="module" defer></script>
-<!-- <script src="scripts/script.js" type="module" defer></script> -->
-<!-- <script src="scripts/date.js" type="module" defer></script> -->
+<script src="scripts/formAjax.js" type="module" defer></script>
+
+<script src="scripts/script.js" type="module" defer></script>
+<script src="scripts/date.js" type="module" defer></script>
 
 </body>
 
