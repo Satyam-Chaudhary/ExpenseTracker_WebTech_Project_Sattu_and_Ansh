@@ -2,12 +2,12 @@
 session_start();
 
 // Include your addExpense.php script
-include 'phpScripts/addExpense.php';
+include "phpScripts/addExpense.php";
 
-$message = '';
-if (isset($_SESSION['message'])) {
-    $message = $_SESSION['message'];
-    unset($_SESSION['message']); // Clear the message after displaying it once
+$message = "";
+if (isset($_SESSION["message"])) {
+    $message = $_SESSION["message"];
+    unset($_SESSION["message"]);
 }
 ?>
 
@@ -18,7 +18,7 @@ if (isset($_SESSION['message'])) {
     <title>Test Form</title>
 </head>
 <body>
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
         <label for="expense">Expense for:</label>
         <input type="text" id="expense" name="expense" placeholder="Expense" required>
         <label for="amount">Amount:</label>
