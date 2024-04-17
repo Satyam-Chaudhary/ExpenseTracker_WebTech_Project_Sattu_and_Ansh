@@ -37,48 +37,6 @@ a {
     border-radius: 5px;
 }
 
-/* .select {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    margin: 20px;
-    border: 2px solid #01283b;
-    background-color: #a2a5ab;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #01283b;
-}
-
-.s, .dtRange, .in, button {
-    margin-right: 10px;
-    font-weight: 600;
-}
-
-.in, button {
-    padding: 10px 20px;
-    background-color: #e7ecef;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-button {
-    background-color: #4450dd;
-    color: black;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: blue;
-    color: white;
-}
-
-.dtRange {
-    flex-grow: 1;
-    text-align: center;
-    margin-right: 10px;
-} */
 
 .select {
     display: flex;
@@ -152,8 +110,44 @@ button:hover {
     text-align: center;
     background-color: #e7ecef; /* Add this background color */
 }
-h3{
+#mess{
     text-align: center;
     width: 100%;
     color: red;
 }
+
+
+.totalView {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.totalView>div {
+    border-radius: 6px;
+    color: black;
+    text-align: center;
+    margin: 10px;
+    padding: 20px;
+    border: black solid 2px;
+}
+.totalView .income {
+    color: #4CAF50;
+}
+
+.totalView .expense {
+    color: #f44336;
+}
+
+.totalView .current {
+    color: #2196F3;
+}
+
+.deleteBtn{
+    width: 30px;
+    background-color: lightcoral;
+    border-radius: 4px;
+}
+

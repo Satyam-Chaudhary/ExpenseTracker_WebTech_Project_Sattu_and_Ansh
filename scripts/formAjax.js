@@ -39,6 +39,7 @@ async function addTransaction(type) {
         
         if (json.status) {
             document.getElementById('recordAdded').innerHTML = json.message;
+            // console.log(json.transactionId);
             console.log("Transaction added");
         } else {
             //Server Error case

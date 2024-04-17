@@ -47,7 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt) {
         $stmt->bind_param("ssdsi", $type, $description, $amount, $category, $user_id);
         if ($stmt->execute()) {
-            echo json_encode(["status" => true, "message" => "Record added successfully."]);
+            $newTransactionId = $conn->insert_id; // to know id that is getting auto incremented
+            echo json_encode(["status" => true, "message" => "Record added successfully.", "transactionId" => $newTransactionId]);
         } else {
             echo json_encode(["status" => false, "message" => "Error: " . $stmt->error]);
         }
