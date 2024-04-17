@@ -41,7 +41,7 @@ a {
 .select {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 20px;
     margin: 20px;
     border: 2px solid #01283b;
@@ -151,3 +151,11 @@ button:hover {
     border-radius: 4px;
 }
 
+.select button{
+    background-color: #09d609;
+    
+}
+.select button:hover {
+    background-color: blue;
+    color: white;
+}

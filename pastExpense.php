@@ -112,6 +112,7 @@ $conn->close();
                 <label for="todt" class="s">To:</label>
                 <input class="in" type="date" id="todt" name="todt" />
                 <button class="in" id="submitSelection">Go</button>
+                
             </form>
         </div>
 

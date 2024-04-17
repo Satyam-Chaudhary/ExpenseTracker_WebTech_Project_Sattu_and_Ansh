@@ -1,0 +1,117 @@
+.navBar {
+    background-color: cadetblue;
+    display: flex;
+    gap: 50%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    padding: 10px;
+    height: 50px;
+    margin: 0px;
+}
+
+.navBar ul,
+li,
+a {
+    list-style: none;
+    display: inline-block;
+}
+
+* {
+    font-family: "calibri", monospace, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navBar a:hover {
+    background-color: green;
+    font-weight: bolder;
+}
+
+.navBar a {
+    text-decoration: none;
+    margin: 5px;
+    padding: 10px;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+body {
+    background-color: #f4f4f4;
+    font-family: "Calibri", sans-serif;
+    color: #333;
+}
+
+.analysis h1 {
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.analysis #dateRangeForm {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.analysis #dateRangeForm label {
+    margin-bottom: 10px;
+    display: block;
+    font-size: 16px;
+    color: #666;
+}
+
+.analysis #dateRangeForm input[type="date"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    display: block;
+}
+
+.analysis #dateRangeForm button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #5cb85c;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.analysis #dateRangeForm button:hover {
+    background-color: #4cae4c;
+}
+
+.analysis #results {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.analysis div#results h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.analysis div#results p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #666;
+}
+
+
+

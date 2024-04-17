@@ -50,7 +50,7 @@ if (isset($_SESSION["message"])) {
   <div class="mainView">
   <div class="sidebar">
     <ul>
-    <li><a href="analysis.html"><h2>Analysis</h2></a></li>
+    <li><a href="analysis.php"><h2>Analysis</h2></a></li>
     <br>
     <li><a href="pastExpense.php"><h2>Past Expenses</h2></a></li>
   </ul>
