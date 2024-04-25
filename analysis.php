@@ -4,14 +4,16 @@ $username = $_SESSION["username"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense Analysis</title>
     <link rel="stylesheet" href="styles/analysis.css">
 </head>
+
 <body>
-<div class="navBar">
+    <div class="navBar">
         <h1>Expense Tracker</h1>
         <ul>
             <li><a href="index.php">Home</a></li>
@@ -26,19 +28,32 @@ $username = $_SESSION["username"];
     </div>
 
     <div class="analysis">
-    <h1>Expense Analysis</h1>
-    <form id="dateRangeForm">
-        <label for="startDate">Start Date:</label>
-        <input type="date" id="startDate" required>
-        
-        <label for="endDate">End Date:</label>
-        <input type="date" id="endDate" required>
-        
-        <button type="submit">Analyze</button>
-    </form>
+        <h1>Expense Analysis</h1>
+        <form id="dateRangeForm">
+            <div>
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" required>
+            </div>
+            
+            <div>
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate" required>
+            </div>
 
-    <div id="results"></div>
+            <button type="submit">Analyze</button>
+        </form>
+
+        <div class="resultBoard">
+        <div id="results"></div>
+
+    <div>
+        <canvas id="myChart"></canvas>
     </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script src="scripts/analysis.js" defer></script>
 </body>
+
 </html>

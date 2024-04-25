@@ -48,7 +48,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
 }
 
-// Separate query to always fetch total expenses and incomes
 $sql_totals = "SELECT type, SUM(amount) AS total FROM transactions WHERE user_id = ? AND DATE(date) BETWEEN ? AND ? GROUP BY type";
 $stmt_totals = $conn->prepare($sql_totals);
 $stmt_totals->bind_param("iss", $userId, $from_date, $to_date);
